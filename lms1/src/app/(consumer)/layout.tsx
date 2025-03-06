@@ -1,9 +1,9 @@
-'use client';
+
 import { Button } from "@/components/ui/button";
-import { SignedOut, SignInButton } from "@clerk/clerk-react";
-import { SignedIn, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
 import Link from "next/link";
 import { ReactNode, Suspense } from "react";
+import { AdminLink } from "./AdminLink";
 
 export default function ConsumerLayout({
     children
@@ -27,10 +27,8 @@ function Navbar(){
                 </Link>
                 <Suspense>
                 <SignedIn>
-                <Link className="hover:bg-accent/10 flex items-center px-2" href="/admin">
-                    Admin
-                    </Link>
-                    <Link className="hover:bg-accent/10 flex items-center px-2" href="/courses">
+                    <AdminLink />
+                    <Link className="hover:bg-accent/10 flex items-center" href="/courses">
                     My Courses
                     </Link>
                     <Link className="hover:bg-accent/10 flex items-center px-2" href="/purchases">
@@ -63,3 +61,4 @@ function Navbar(){
     </header>
     )
 }
+
